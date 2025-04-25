@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Escáner QR</title>
   <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
   <h1>Escanea un Código QR</h1>
-  <div id="reader"></div>
+  <div id="reader" style="width: 300px; margin: auto;"></div>
   <p id="resultado">Esperando código...</p>
 
-  <script src="script.js"></script>
+  <!-- Primero cargas la librería para leer QR -->
   <script src="https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"></script>
 
+  <!-- Luego tu script personalizado -->
+  <script src="script.js"></script>
 </body>
 </html>
