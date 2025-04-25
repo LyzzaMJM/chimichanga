@@ -1,11 +1,10 @@
 function onScanSuccess(decodedText, decodedResult) {
   document.getElementById('resultado').innerText = `Código escaneado: ${decodedText}`;
-  html5QrCode.stop(); // Detener escaneo después de un resultado
+  html5QrCode.stop();
 }
 
 function onScanError(errorMessage) {
-  // Puedes mostrar errores o simplemente ignorarlos
-  console.log("Error de escaneo:", errorMessage);
+  console.log(errorMessage);
 }
 
 const html5QrCode = new Html5Qrcode("reader");
@@ -15,13 +14,13 @@ Html5Qrcode.getCameras().then(devices => {
     html5QrCode.start(
       devices[0].id,
       {
-        fps: 10,    // Frames por segundo
-        qrbox: 250  // Área de escaneo
+        fps: 10,
+        qrbox: 250
       },
       onScanSuccess,
       onScanError
     );
   }
 }).catch(err => {
-  console.error("No se pudo acceder a la cámara:", err);
+  console.error("Error accediendo a la cámara", err);
 });
